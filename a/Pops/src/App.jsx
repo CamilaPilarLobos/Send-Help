@@ -11,12 +11,16 @@ function App() {
     <main>
         {tarjeta.map(tarjeta => 
           {
-            return <Persona nombre={tarjeta.name} 
-            edad={tarjeta.edad} descripcion={tarjeta.descripcion} Stock={tarjeta.Stock} />
+            return <TarjetaProducto 
+            nombre={tarjeta.nombre} 
+            precio={tarjeta.precio} 
+            descripcion={tarjeta.descripcion} 
+            Stock={tarjeta.Stock} />
           }
         )}
       </main>
-      <footer></footer>
+      <footer>
+      </footer>
     </>
   )
 }
