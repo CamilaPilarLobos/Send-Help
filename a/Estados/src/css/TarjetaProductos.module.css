@@ -1,0 +1,14 @@
+.tarjetaProducto{
+flex: 1;
+width: 70px;
+}
+
+.enStock {
+color: green;
+}
+.agotado {
+color: red;
+}
+.precio {
+color: #b6b9c8;
+}
