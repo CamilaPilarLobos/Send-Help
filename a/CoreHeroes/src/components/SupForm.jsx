@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SupForm = ({listaSups,setlistaSups}) =>{
+const SupForm = ({listSups,setlistSups}) =>{
     const arrayData ={
         name:"",
         lastName:"",
@@ -20,17 +20,16 @@ const SupForm = ({listaSups,setlistaSups}) =>{
         e.preventDefault();
         const errorsCopy = {...errors}
         state.name.length < 4? (errorsCopy.name = "the element should have more than 4 characters"):  (errorsCopy.name ="");
-        state.lastName.length <4? (errorsCopy.lastName = "the element should have more than 4 characters"): (errorsCopy.lastName="")
+        state.lastName.length <4? (errorsCopy.lastName = "the element should have more than 4 characters"): (errorsCopy.lastName="");
         state.password != state.passwordConfirm ? (errorsCopy.passwordConfirm = 'the password confirm is not the same as the password') : (errorsCopy.passwordConfirm='');
         state.email.length < 10 || !state.email.includes('@')? (errorsCopy.email = "the email sould have an @"): (errorsCopy.email='');
-        
-        state.password.length < 12? (errorsCopy.password = "The password should have at least 12 characters"): (errorsCopy.password ='');
+        state.password.length < 12? ( errorsCopy.password ="The password should have at least 12 characters"): (errorsCopy.password ='');
+
         if (errorsCopy.name|| errorsCopy.lastName|| errorsCopy.email|| errorsCopy.password|| errorsCopy.passwordConfirm){
                 setErrors (errorsCopy)
                 return;
         }
-
-        setlistaSups([...listaSups, state])
+        setlistSups([...listSups, state])
         setState(arrayData)
         setErrors(arrayData)
     } 

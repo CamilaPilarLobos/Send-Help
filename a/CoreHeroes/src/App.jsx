@@ -16,8 +16,6 @@ function App() {
         < SupForm  listSups={listSups} setlistSups={setlistSups}/> 
       </main>
       <footer>
-        {/* {listSups.map((sup,index)=> 
-        <div key={index} className="card bg-warning"><p>{sup.name}</p></div>)} */}
         <br/>
         <table class="table table-dark table-hover">
             <thead>
