@@ -1,0 +1,16 @@
+.high{
+    color: forestgreen;
+}
+.medium{
+    color: yellow;
+}
+.low{
+    color: red;
+}
+.note{
+display: flex;
+justify-content: space-between;
+}
+button{
+flex-direction: row;
+}
