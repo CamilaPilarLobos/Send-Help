@@ -22,7 +22,7 @@ function App() {
         <div className='Card-body'>
           <Filter filter={filter} setFilter={setFilter} />
 
-          {listFiltered.map ((note,index)=><Note note={note.note} priority= {note.priority}  setlistNotes={setlistNotes} index={index}/> )  }
+          {listFiltered.map ((note,index)=><Note note={note.note} priority= {note.priority} listnotes={listnotes} setlistNotes={setlistNotes} index={index}/> )  }
         </div>
         <div className='Card-footer'></div>
         <hr />
