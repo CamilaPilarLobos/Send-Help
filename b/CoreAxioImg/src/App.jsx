@@ -1,13 +1,14 @@
 
+import { useState } from 'react';
 import './App.css'
-import ExtractData from './assets/components/ExtractData'
+import ExtractData from './components/ExtractData';
 
 function App(){
 
   return (
     <>
-    <h1> Random Image of A cat :3</h1>
-    <ExtractData />
+    <h1> Random Image of A fox :3</h1>
+    <ExtractData/>
     </>
   )
 }
