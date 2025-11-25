@@ -1,33 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import './App.css'
+import ArtP from './components/Art'
+import Home from './components/ruteo'
 
 function App() {
-  const [count, setCount] = useState(0)
 
+  const galeryList = [
+    {name: 'Fuera de este Mundo', author: 'Someone', img:'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGhsYm5hYzh1N2RpaGh3NWs5MHFnZm00d2pqMnZhaWxmdWt2ZzgzaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/M52wyuahvQfJK/giphy.gif' }, 
+    {name: 'Pacientes Holograficos',  author: 'Someone', img:'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGhsYm5hYzh1N2RpaGh3NWs5MHFnZm00d2pqMnZhaWxmdWt2ZzgzaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/4y6DqPvlICp5S/giphy.gif' },
+    {name: 'Lo Alto de dinero',  author: 'Someone', img:'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGhsYm5hYzh1N2RpaGh3NWs5MHFnZm00d2pqMnZhaWxmdWt2ZzgzaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/HWLa2UnmEsc2qpYu8f/giphy.gif' }, 
+    {name: 'Nada como la privacidad del hogar', author: 'Someone', img:'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGhsYm5hYzh1N2RpaGh3NWs5MHFnZm00d2pqMnZhaWxmdWt2ZzgzaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/M52wyuahvQfJK/giphy.gif' }, 
+    {name: 'Moverse en la ciudad',  author: 'Someone', img:'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGhsYm5hYzh1N2RpaGh3NWs5MHFnZm00d2pqMnZhaWxmdWt2ZzgzaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/M52wyuahvQfJK/giphy.gif' },  
+    {name: 'Diversion de otro planeta',  author: 'Someone', img:'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGhsYm5hYzh1N2RpaGh3NWs5MHFnZm00d2pqMnZhaWxmdWt2ZzgzaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/M52wyuahvQfJK/giphy.gif' }, 
+    {name: 'Espectaculo de la Galaxia',  author: 'Someone', img:'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGhsYm5hYzh1N2RpaGh3NWs5MHFnZm00d2pqMnZhaWxmdWt2ZzgzaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/M52wyuahvQfJK/giphy.gif' }, 
+    {name: 'Taxista',  author: 'Someone', img:'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGhsYm5hYzh1N2RpaGh3NWs5MHFnZm00d2pqMnZhaWxmdWt2ZzgzaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/M52wyuahvQfJK/giphy.gif' }
+
+  ]
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <Routes>
+      <Route path= '/Home' element={<Home galeryList={galeryList} /> }></Route>
+      <Route path= '/' element={<Navigate to = "Home"/>} ></Route>
+      <Route path = '/art/:id' element={ <ArtP galeryList= {galeryList}/>}></Route>
+    </Routes>
     </>
   )
 }
