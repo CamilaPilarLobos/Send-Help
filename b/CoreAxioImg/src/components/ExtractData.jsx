@@ -1,15 +1,13 @@
 import axios from 'axios';
-import { useEffect,} from 'react';
+import { useEffect,useState} from 'react';
 
 const ExtractData =({setImg})=>{
-    
-    const [imagen, setImagen] = useState ([])
 
 const Extract = async ()=>{
 
+    const URL = 'https://api.thecatapi.com/v1/images/search' ;
     axios.get(URL).then (response => {
-    const URL = 'https://dog.ceo/api/breeds/image/random' 
-        setImg(response.data.message);
+        setImg(response.data[0].url);
     })
         .catch(e => {
             console.error("Error fetching image:", e);
@@ -21,7 +19,6 @@ const Extract = async ()=>{
 
 return(
     <div>
-        {imagen  &&<img src= {imagen} alt='random image' />}
         <button onClick={Extract}>Obten tu imagen</button>
     </div>
 )
