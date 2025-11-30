@@ -1,0 +1,11 @@
+.img {
+    width: 30rem;
+    height:30rem;
+    margin: 10px;
+    border-radius: 50px;
+}
+.btns{
+    margin: 10rem;
+    padding-top: 20px;
+    margin-top: 20px;
+}
