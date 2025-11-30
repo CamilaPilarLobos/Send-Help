@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom"
-import styles from './../css/Art.module.css'
+import styles from './../css/art.module.css'
 
 const ArtP = ({galeryList})=>{
     const params = useParams ();
@@ -28,11 +28,11 @@ const ArtP = ({galeryList})=>{
     return(
         <>
         <h1> {artp.name} </h1>
-        <img src={artp.img} alt={artp.name} />
+        <img className={styles.img} src={artp.img} alt={artp.name} />
         <div>
-            <button onClick={()=> navigate(`/art/${idParams-1}`)}  disabled={idParams===0}> anterior</button>
-            <button onClick={()=> navigate(`/home`)} >Inicio</button>
-            <button onClick={()=> navigate(`/art/${idParams+1}`)}  disabled={idParams===(galeryList.length -1)}> Siguiente</button>
+            <button className={ styles.btns} onClick={()=> navigate(`/art/${idParams-1}`)}  disabled={idParams===0}> anterior</button>
+            <button className={ styles.btns} onClick={()=> navigate(`/home`)} >Inicio</button>
+            <button className={ styles.btns} onClick={()=> navigate(`/art/${idParams+1}`)}  disabled={idParams===(galeryList.length -1)}> Siguiente</button>
         </div>
         </>
     )

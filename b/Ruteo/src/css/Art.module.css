@@ -3,9 +3,12 @@
     height:30rem;
     margin: 10px;
     border-radius: 50px;
+    display: flex;
 }
 .btns{
-    margin: 10rem;
-    padding-top: 20px;
-    margin-top: 20px;
+    margin: 5px;
+    background-color:#4caf50;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
 }
