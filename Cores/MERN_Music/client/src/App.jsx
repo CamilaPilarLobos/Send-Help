@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import {Routes, Route , NavLink } from 'react-router-dom';
+import ListaCanciones from './views/ListaCanciones.jsx';
+import OneSong from './views/OneSong.jsx';
+import FormSong from './views/FormSongs.jsx';
+import SongsApi from './components/songsApi.jsx';
+import UpdateSongsForm from './views/UpdateSongsFrom.jsx';
+import NotFound from './components/notFound.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [listasSongs, setListasSongs] = useState([]);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>MERN Music</h1>
+      <SongsApi setListasSongs={setListasSongs} />
+      <NavLink to="/canciones">Lista de canciones</NavLink> | 
+      <NavLink to="/canciones/new">Nuevas canciones</NavLink>
+
+        <Routes>
+          <Route path="/" element={<div><p>Home</p></div>} />
+          <Route path="/canciones" element={<ListaCanciones listasSongs={listasSongs} />} />
+          <Route path="/canciones/:id" element={<OneSong listasSongs={listasSongs} setListasSongs={setListasSongs} />} />
+          <Route path="/canciones/new" element={<FormSong listasSongs={listasSongs} setListasSongs={setListasSongs} />}/>
+          <Route path="/canciones/update/:id" element={<UpdateSongsForm listasSongs={listasSongs} setListasSongs={setListasSongs}/>} />
+          <Route path="*" element={ <NotFound/>} />
+        </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
