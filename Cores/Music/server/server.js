@@ -2,7 +2,7 @@ import express from 'express'
 import {faker} from '@faker-js/faker'
 
 const app = express()
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8070;
 
 
 const generarCancion = () => {
